@@ -1,6 +1,6 @@
 {% set name = "pymssql" %}
-{% set version = "2.1.4" %}
-{% set sha256 = "3201eb1b1263ad55b555d727ed8bed0b12b7b9de3ce5e529206e36d4be1a7afb" %}
+{% set version = "2.1.5" %}
+{% set sha256 = "d60f5f90337399668e10ab6a23a1657f190c9585401eb96a5456261f7c414864" %}
 
 package:
   name: {{ name|lower }}
@@ -13,7 +13,7 @@ source:
   # git_rev: cc5676fb8887e7233c8de9121b2b71832991d606 
 
 build:
-  number: 2001
+  number: 0
   skip: true  # [win]
   script:
     - python setup.py build_ext --include-dirs=%PREFIX%\include --library-dirs=%PREFIX%\lib  # [win]
@@ -35,15 +35,16 @@ requirements:
     - freetds
 
 test:
-    imports:
-        - pymssql
+  imports:
+    - pymssql
 about:
-    dev_url: https://github.com/pymssql/pymssql
-    doc_url: http://www.pymssql.org/en/stable/
-    home: http://pymssql.org
-    license: LGPL
-    license_family: LGPL
-    summary: DB-API interface to Microsoft SQL Server for Python. (new Cython-based version)
+  dev_url: https://github.com/pymssql/pymssql
+  doc_url: http://www.pymssql.org/en/stable/
+  home: http://pymssql.org
+  license: LGPL
+  license_file: LICENSE
+  license_family: LGPL
+  summary: DB-API interface to Microsoft SQL Server for Python. (new Cython-based version)
 
 extra:
   recipe-maintainers:
