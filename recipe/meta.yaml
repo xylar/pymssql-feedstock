@@ -13,7 +13,7 @@ source:
   # git_rev: cc5676fb8887e7233c8de9121b2b71832991d606 
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win]
   script:
     - python setup.py build_ext --include-dirs=%PREFIX%\include --library-dirs=%PREFIX%\lib  # [win]
@@ -41,7 +41,7 @@ about:
   dev_url: https://github.com/pymssql/pymssql
   doc_url: http://www.pymssql.org/en/stable/
   home: http://pymssql.org
-  license: LGPL
+  license: LGPL-2.1-only
   license_file: LICENSE
   license_family: LGPL
   summary: DB-API interface to Microsoft SQL Server for Python. (new Cython-based version)
