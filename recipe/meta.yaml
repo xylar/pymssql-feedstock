@@ -1,6 +1,6 @@
 {% set name = "pymssql" %}
-{% set version = "2.1.5" %}
-{% set sha256 = "d60f5f90337399668e10ab6a23a1657f190c9585401eb96a5456261f7c414864" %}
+{% set version = "2.2.3" %}
+{% set sha256 = "b94fddc6d5f168205d14294d36969025967ff1837adcc1664c19968de61dca80" %}
 
 package:
   name: {{ name|lower }}
@@ -9,13 +9,17 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - patches/0002-customize_compiler.patch
   # git_url: https://github.com/pymssql/pymssql.git
-  # git_rev: cc5676fb8887e7233c8de9121b2b71832991d606 
+  # git_rev: cc5676fb8887e7233c8de9121b2b71832991d606
 
 build:
-  number: 3
+  number: 0
   skip: true  # [win]
   script:
+    - export LINK_FREETDS_STATICALLY=NO   # [unix]
+    - set LINK_FREETDS_STATICALLY=NO      # [win]
     - python setup.py build_ext --include-dirs=%PREFIX%\include --library-dirs=%PREFIX%\lib  # [win]
     - python setup.py build_ext --include-dirs=$PREFIX/include --library-dirs=$PREFIX/lib    # [not win]
     - python setup.py install --single-version-externally-managed --record record.txt
@@ -29,17 +33,28 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - python
-    - setuptools
-    - cython
+    - cython >=0.29.22
     - freetds
+    - pip
+    - setuptools >=54.0
     - setuptools-git
+    - setuptools_scm >=5.0
+    - toml
+    - wheel >=0.36.2
   run:
     - python
     - freetds
+  run_constrained:                                             # [osx and x86_64]
+    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.12") }}  # [osx and x86_64]
 
 test:
   imports:
     - pymssql
+  requires:
+    - pip
+  commands:
+    - pip check
+
 about:
   dev_url: https://github.com/pymssql/pymssql
   doc_url: http://www.pymssql.org/en/stable/
