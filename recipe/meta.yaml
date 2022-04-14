@@ -1,6 +1,6 @@
 {% set name = "pymssql" %}
-{% set version = "2.2.4" %}
-{% set sha256 = "6ff7867699997e73114d96314361696ab1a49a1250b6b5d6f884c7ab380a5b82" %}
+{% set version = "2.2.5" %}
+{% set sha256 = "857411c308ecb584a3ca633be30f1971d2a8cc0bcd978709b1abf96ff43767ad" %}
 
 package:
   name: {{ name|lower }}
@@ -44,7 +44,7 @@ requirements:
   run:
     - python
     - freetds
-  run_constrained:                                             # [osx and x86_64]
+  run_constrained:   # [osx and x86_64]
     - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.12") }}  # [osx and x86_64]
 
 test:
