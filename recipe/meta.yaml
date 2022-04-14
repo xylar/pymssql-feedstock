@@ -15,7 +15,7 @@ source:
   # git_rev: cc5676fb8887e7233c8de9121b2b71832991d606
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   script:
     - export LINK_FREETDS_STATICALLY=NO   # [unix]
