@@ -1,6 +1,6 @@
 {% set name = "pymssql" %}
-{% set version = "2.2.5" %}
-{% set sha256 = "857411c308ecb584a3ca633be30f1971d2a8cc0bcd978709b1abf96ff43767ad" %}
+{% set version = "2.2.7" %}
+{% set sha256 = "ff95b910532ec7b02e4322231c117d3d6af0abab667e6fbf15442db873943045" %}
 
 package:
   name: {{ name|lower }}
@@ -15,7 +15,7 @@ source:
   # git_rev: cc5676fb8887e7233c8de9121b2b71832991d606
 
 build:
-  number: 3
+  number: 0
   script:
     - export LINK_FREETDS_STATICALLY=NO   # [unix]
     - set LINK_FREETDS_STATICALLY=NO      # [win]
