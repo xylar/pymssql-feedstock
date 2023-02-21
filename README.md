@@ -314,4 +314,5 @@ Feedstock Maintainers
 =====================
 
 * [@mariusvniekerk](https://github.com/mariusvniekerk/)
+* [@primozgodec](https://github.com/primozgodec/)
 
