@@ -9,10 +9,6 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    - patches/0002-customize_compiler.patch
-  # git_url: https://github.com/pymssql/pymssql.git
-  # git_rev: cc5676fb8887e7233c8de9121b2b71832991d606
 
 build:
   number: 0
