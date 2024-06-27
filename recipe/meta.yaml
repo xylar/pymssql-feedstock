@@ -43,8 +43,6 @@ requirements:
   run:
     - python
     - freetds
-  run_constrained:   # [osx and x86_64]
-    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.12") }}  # [osx and x86_64]
 
 test:
   imports:
